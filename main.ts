@@ -40,22 +40,30 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Premio, function (sprite, otherS
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . 2 2 . . . . . . . . . 
-        . . . . 2 5 5 2 . . . . . . . . 
-        . . . 2 5 f f 5 2 . . . . . . . 
-        . . . 2 5 f f 5 2 . . . . . . . 
-        . . . . 2 5 5 2 . . . . . . . . 
-        . . . . . 2 2 . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 2 2 . . . . . . . . . . . . 
+        . . . . . . . . . 5 f f 5 . . . . . . . . . . . 
+        . . . . . . . . 5 f f f f 5 . . . . . . . . . . 
+        . . . . . . . 2 f f 2 2 f f 2 . . . . . . . . . 
+        . . . . . . . 2 f f 2 2 f f 2 . . . . . . . . . 
+        . . . . . . . . 5 f f f f 5 . . . . . . . . . . 
+        . . . . . . . . . 5 f f 5 . . . . . . . . . . . 
+        . . . . . . . . . . 2 2 . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . 
         `, pepe, 200, 0)
 })
 function nivel_3 () {
@@ -82,6 +90,7 @@ function nivel_3 () {
             `, SpriteKind.Energia)
         energio.setPosition(x3[index], y3[index])
     }
+    info.setLife(6)
     pepe.setPosition(1, 0)
     scene.setBackgroundImage(img`
         6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 
@@ -255,7 +264,7 @@ function nivel_3 () {
         `, SpriteKind.Enemy)
     enemigo_2.setPosition(484, 104)
     enemigo_2.follow(pepe, 25)
-    enemigo3 = sprites.create(img`
+    Enemigo_4 = sprites.create(img`
         . . . . . . . . . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -281,8 +290,48 @@ function nivel_3 () {
         . . . . . . . . . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)
-    enemigo3.setPosition(400, 199)
-    enemigo3.follow(pepe, 25)
+    Enemigo_4.setPosition(300, 0)
+    Enemigo_4.follow(pepe, 25)
+    enemigo5 = sprites.create(img`
+        . . f f f . . . . . . . . . . . 
+        f f f c c . . . . . . . . f f f 
+        f f c c c . c c . . . f c b b c 
+        f f c 3 c c 3 c c f f b b b c . 
+        f f c 3 b c 3 b c f b b c c c . 
+        f c b b b b b b c f b c b c c . 
+        c c 1 b b b 1 b c b b c b b c . 
+        c b b b b b b b b b c c c b c . 
+        c b 1 f f 1 c b b c c c c c . . 
+        c f 1 f f 1 f b b b b f c . . . 
+        f f f f f f f b b b b f c . . . 
+        f f 2 2 2 2 f b b b b f c c . . 
+        . f 2 2 2 2 2 b b b c f . . . . 
+        . . f 2 2 2 b b b c f . . . . . 
+        . . . f f f f f f f . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    enemigo5.setPosition(200, 0)
+    enemigo5.follow(pepe, 25)
+    enemigo6 = sprites.create(img`
+        . . f f f . . . . . . . . . . . 
+        f f f c c . . . . . . . . f f f 
+        f f c c c . c c . . . f c b b c 
+        f f c 3 c c 3 c c f f b b b c . 
+        f f c 3 b c 3 b c f b b c c c . 
+        f c b b b b b b c f b c b c c . 
+        c c 1 b b b 1 b c b b c b b c . 
+        c b b b b b b b b b c c c b c . 
+        c b 1 f f 1 c b b c c c c c . . 
+        c f 1 f f 1 f b b b b f c . . . 
+        f f f f f f f b b b b f c . . . 
+        f f 2 2 2 2 f b b b b f c c . . 
+        . f 2 2 2 2 2 b b b c f . . . . 
+        . . f 2 2 2 b b b c f . . . . . 
+        . . . f f f f f f f . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    enemigo6.setPosition(400, 400)
+    enemigo6.follow(pepe, 25)
     cartel_4 = sprites.create(img`
         e e e e e e e e e e e e e e e e 
         e 8 8 8 8 8 8 8 8 8 8 8 8 8 8 e 
@@ -435,9 +484,10 @@ function nivel_2 () {
         . . f b b b b b b c f . . . . . 
         . . . f f f f f f f . . . . . . 
         `, SpriteKind.Enemy)
-    enemigo3.setPosition(484, 168)
+    enemigo3.setPosition(500, 0)
     enemigo3.follow(pepe)
     enemigo1.setVelocity(10, 10)
+    enemigo3.setVelocity(10, 10)
     pepe.setVelocity(100, 100)
     scene.setBackgroundImage(img`
         6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 
@@ -672,17 +722,8 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         `)
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
-    if (nivel == 2) {
-        info.changeLifeBy(-1)
-        pepe.setPosition(104, 24)
-    }
-    if (nivel == 3) {
-        info.changeLifeBy(-1)
-        pepe.setPosition(1, 0)
-    }
-    if (info.life() == 0) {
-        game.over(false, effects.starField)
-    }
+    info.changeLifeBy(-1)
+    pepe.setPosition(104, 24)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.cofre, function (sprite, otherSprite) {
     music.baDing.play()
@@ -707,7 +748,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.cofre, function (sprite, otherSp
     info.changeScoreBy(1)
     otherSprite.setKind(SpriteKind.cofre_abierto)
     if (info.score() == 20) {
-        info.changeLifeBy(1)
+        info.setLife(1)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Fin, function (sprite, otherSprite) {
@@ -798,16 +839,18 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Nivel2, function (sprite, otherS
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy(effects.fire, 500)
-    info.changeScoreBy(5)
+    info.changeScoreBy(10)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     if (controller.A.isPressed()) {
         otherSprite.destroy()
+        info.changeScoreBy(20)
     }
 })
 let cartel2: Sprite = null
 let monedas: Sprite = null
 let cont_premios = 0
+let enemigo3: Sprite = null
 let enemigo1: Sprite = null
 let cartel3: Sprite = null
 let y2: number[] = []
@@ -815,7 +858,9 @@ let cofres: Sprite = null
 let x2: number[] = []
 let cont_premios2 = 0
 let cartel_4: Sprite = null
-let enemigo3: Sprite = null
+let enemigo6: Sprite = null
+let enemigo5: Sprite = null
+let Enemigo_4: Sprite = null
 let enemigo_2: Sprite = null
 let y3: number[] = []
 let energio: Sprite = null
@@ -855,7 +900,7 @@ game.setDialogCursor(img`
 game.splash("Scroll atrapa cosas ", "Autor:Mario Banegas I")
 game.splash("Nacimiento:2010", "Juego hecho en:2020")
 game.setDialogTextColor(9)
-game.showLongText("Bienbenido a SCROLL ATRAPA   COSAS   en este juego tendras   que coger cosas podras volar tienes que tener cuidado con los enemigos  no tienes que tocar ningun boton para coger las cosasen este nivel tansolo sola tienes que coger las monedas  cada vez que cojas 10 objetos te subira una vida", DialogLayout.Center)
+game.showLongText("Bienbenido a SCROLL ATRAPA   COSAS   en este juego tendras   que coger cosas  tienes que tener cuidado con los enemigos  no tienes que tocar ningun boton para coger las cosas en este nivel tansolo sola tienes que coger las monedas  y una última cosa para disparar de lejos tienes que disparar con la B si lo toca el enemigo te sumará 10 puntos si tocas el botón A usaras tú espada y te sumará 20 puntos", DialogLayout.Center)
 pepe = sprites.create(img`
     . . . . . . . . . . . . . . . . . 
     . . . . f f f f f f . . . . . . . 
